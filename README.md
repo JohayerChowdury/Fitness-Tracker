@@ -1,6 +1,5 @@
 # Fitness-Tracker
-A web app to track fitness and health metrics.
-My first time using MERN stack:
+Using MERN stack, I created a web application to track fitness and health metrics.
 
 MongoDB as Database 
 
