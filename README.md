@@ -1,8 +1,8 @@
 # Fitness-Tracker
-Using MERN stack, I created a web application to track fitness and health metrics.
+Im in the midst of creating a MERN stack application that can allow users to login, track their their fitness and health metrics, and view them in informative visualizations.
 
-MongoDB as Database 
+Using MongoDB to store data in a non-relational database 
 
-Express.js and Node.js as Backend
+Using Node (and Express) and other npm libraries to set up the server-side environment
 
-React as Frontend
+Using React (and other packages such as Bootstrap) to set up the front-end environment for client interface.
