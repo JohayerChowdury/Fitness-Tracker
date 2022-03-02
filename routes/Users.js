@@ -1,7 +1,7 @@
-//installing express package and modules
 const express = require('express');
 const router = express.Router();
-let UserModel = require('../models/UserModel');
+const jwt = require('jsonwebtoken');
+const UserModel = require('../models/UserModel');
 
 //show all user data
 router.get('/', (req, res) => {
@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 });
 
 //create user
-router.post('/register', (req, res) => {
+router.post('/new-user', (req, res) => {
   const newUser = new UserModel({
     name: req.body.name,
     username: req.body.username,
@@ -35,8 +35,8 @@ router.post('/register', (req, res) => {
 });
 
 //login
-router.post('/login', (req, res) => {
-  UserModel.find(
+router.post('/login', async (req, res) => {
+  const user = UserModel.find(
     {
       username: req.body.username,
       password: req.body.password,
@@ -48,6 +48,9 @@ router.post('/login', (req, res) => {
         if (documents.length == 0) {
           res.send('Login failed.');
         } else {
+          const token = jwt.sign({
+            username: UserModel.username,
+          });
           res.send(documents);
           username = req.body.username;
         }
